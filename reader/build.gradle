@@ -1,0 +1,86 @@
+apply plugin: 'com.android.library'
+
+def supportVersion = "28.0.0"
+
+android {
+
+    compileSdkVersion 28
+    defaultConfig {
+
+        minSdkVersion 17
+        targetSdkVersion 28
+        versionCode 2
+        versionName "2.0"
+        multiDexEnabled true//方法总数超过64K时,dex分割
+//        ndk {
+//            moduleName "DeflatingDecompressor-v3"
+//            abiFilters "armeabi-v7a"
+//        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+//        release {
+//            // 是否进行混淆
+//            minifyEnabled false
+//            // 混淆文件的位置
+////            signingConfig signingConfigs.debug
+//            proguardFiles 'proguard-rules.pro'
+//        }
+//
+//        debug {
+//            minifyEnabled false
+//            signingConfig signingConfigs.debug
+//            proguardFiles 'proguard-rules.pro'
+//        }
+
+    }
+
+    sourceSets.main {
+        jniLibs.srcDir 'src/main/libs'
+        jni.srcDirs = []
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    productFlavors {
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    defaultConfig {
+        multiDexEnabled true
+    }
+
+}
+
+dependencies {
+    repositories {
+        flatDir { dirs 'libs' }
+    }
+    api 'com.android.support:support-v4:' + supportVersion
+    api 'com.android.support:appcompat-v7:' + supportVersion
+    //    compile files('libs/universal-image-loader-1.9.5.jar')
+    api 'com.commit451:PhotoView:1.2.4'
+    api 'com.android.support:design:' + supportVersion
+    api 'de.hdodenhof:circleimageview:1.3.0'
+    api 'org.apache.httpcomponents:httpcore:4.4.2'
+    api 'com.github.dmytrodanylyk.android-process-button:library:1.0.0'
+    api files('libs/json-simple-1.1.1.jar')
+    api files('libs/nanohttpd-2.0.5.jar')
+    api 'com.github.johnpersano:supertoasts:1.3.4@aar'
+    api 'com.github.yukuku:ambilwarna:2.0.1'
+    api 'com.j256.ormlite:ormlite-android:4.48'
+    api 'com.j256.ormlite:ormlite-core:4.48'
+    api files('libs/javabase64-1.3.1.jar')
+//    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
+    //方法总数超过64K时,dex分割
+    api files('libs/universal-image-loader-1.9.5.jar')
+    api 'org.greenrobot:eventbus:3.0.0'
+    api 'com.githang:status-bar-compat:0.5.2' // 状态栏颜色
+}

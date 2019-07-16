@@ -1,0 +1,84 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            zipAlignEnabled false
+            shrinkResources false
+            minifyEnabled false
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    packagingOptions {
+        doNotStrip "**/libDX*.so"
+    }
+
+}
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    // Support libraries
+    api deps.support.app_compat
+    api deps.support.v4
+    api deps.support.v13
+    api deps.support.design
+    api deps.support.cardview
+    api deps.support.percent
+    api deps.support.recyclerview
+    api deps.constraint_layout
+    // NetWork
+    api 'com.squareup.okhttp3:okhttp:3.8.0'
+    api 'com.squareup.okio:okio:1.8.0'
+    api deps.rx_android
+    api deps.rxjava2
+    api deps.retrofit.runtime
+    api deps.retrofit.gson
+    api deps.retrofit.adapter
+    // other
+    api deps.event_bus
+    api deps.gson
+    api deps.permission
+    api deps.utils
+    api deps.glide
+    //view
+    api deps.easy_recycler
+    api deps.logger
+    api deps.qmui
+    api deps.slike
+    //router
+    api deps.arouter_api
+    api 'com.qw:soulpermission:1.1.6'
+    api 'com.ixuea:AndroidDownloader:2.0.4'
+    api 'com.freddy:eventcenter_lib:1.0.1'
+    api project(':reader')
+    api 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    api 'com.alibaba:fastjson:1.2.10'
+    api files('libs/dx-risk-5.5.5.jar')
+
+}

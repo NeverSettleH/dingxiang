@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.module_main">
+
+    <application android:theme="@style/AppTheme">
+        <activity android:name=".WebViewActivity"></activity>
+        <activity android:name=".EventCenterActivity" />
+        <activity android:name=".HomeActivity" />
+        <service android:name="com.ixuea.android.downloader.DownloadService">
+            <intent-filter>
+                <action android:name="com.ixuea.android.downloader.DOWNLOAD_SERVICE" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

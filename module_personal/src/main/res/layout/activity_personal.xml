@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".PersonalActivity">
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           tools:ignore="HardcodedText"
+           >
+           <Button
+               android:id="@+id/alterView"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Dialog" />
+
+           <Button
+               android:id="@+id/btn_permission_one"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="单个权限" />
+
+           <Button
+               android:id="@+id/btn_permission_more"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="多个权限" />
+           <Button
+               android:id="@+id/btn_permission_should"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="检查并请求特殊权限" />
+           <Button
+               android:onClick="checkSinglePermission"
+               android:textAllCaps="false"
+               android:gravity="start|center_vertical"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/bt_call"
+               android:text="checkPermission"/>
+           <Button
+               android:onClick="requestSinglePermission"
+               android:textAllCaps="false"
+               android:gravity="start|center_vertical"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text=" for one permission"/>
+
+           <Button
+               android:onClick="requestPermissions"
+               android:textAllCaps="false"
+               android:gravity="start|center_vertical"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text=" for a series of permissions"/>
+
+           <Button
+               android:onClick="requestSinglePermissionWithRationale"
+               android:textAllCaps="false"
+               android:gravity="start|center_vertical"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text=" for one permission with rationale"/>
+
+           <Button
+               android:onClick="checkNotification"
+               android:textAllCaps="false"
+               android:gravity="start|center_vertical"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="checkSpecial[Notification]"/>
+
+           <Button
+               android:onClick="checkAndRequestNotification"
+               android:textAllCaps="false"
+               android:gravity="start|center_vertical"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="for Special[Notification]"/>
+
+           <Button
+               android:onClick="checkAndRequestSystemAlert"
+               android:textAllCaps="false"
+               android:gravity="start|center_vertical"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="for Special[SystemAlert]"/>
+
+           <Button
+               android:onClick="checkAndRequestUnKnownSource"
+               android:textAllCaps="false"
+               android:gravity="start|center_vertical"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="for Special[InstallUnknownSource]"/>
+
+           <Button
+               android:onClick="goApplicationSettings"
+               android:textAllCaps="false"
+               android:gravity="start|center_vertical"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="go application settings"/>
+
+           <Button
+               android:onClick="getTopActivity"
+               android:textAllCaps="false"
+               android:gravity="start|center_vertical"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="get top activity"/>
+
+       </LinearLayout>
+   </ScrollView>
+
+</LinearLayout>
